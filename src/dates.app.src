@@ -1,0 +1,12 @@
+{application, dates,
+ [
+  {description, ""},
+  {vsn, "0.1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { dates_app, []}},
+  {env, []}
+ ]}.
