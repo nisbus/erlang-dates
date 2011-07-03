@@ -11,6 +11,18 @@ get_range(FromDate,ToDate,Frequency,IncludeWeekends)
   
 The same as the first one only omitting weekends (when IncludeWeekends is false).  
   
+Supported frequencies:  
+  
+years  
+months  
+quarters  
+days  
+weeks  
+days  
+hours  
+minutes  
+seconds  
+  
 TODO:  
   
 Add more date time functions that are missing from the erlang:calendar.
