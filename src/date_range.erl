@@ -3,6 +3,15 @@
 %%% @copyright (C) 2011, 
 %%% @doc
 %%% Dates module for handling ranges of dates and other useful date functions.
+%%% Supports the following frequencies
+%%%   years,
+%%%   months,
+%%%   quarters,
+%%%   weeks,
+%%%   days,
+%%%   hours,
+%%%   minutes,
+%%%   seconds (use with care)
 %%% @end
 %%% Created :  2 Jul 2011 by  nisbus <nisbus@gmail.com>
 %%%-------------------------------------------------------------------
@@ -14,6 +23,13 @@
 %%%===================================================================
 %%% API
 %%%===================================================================
+%%% @doc
+%%%  Creates a list of dates from the from date to the to date at the given frequency
+%%%  Optionally exclude weekends.
+%%% @end
+-spec create_range(From :: calendar:t_datetime1970(), To :: calendar:t_datetime1970(),
+		   Frequency :: atom(), IncludeWeekends :: true | false) -> 
+			  [calendar:t_datetime1970()].
 create_range(From,To,Frequency, IncludeWeekends) ->
     case IncludeWeekends of 
 	true ->
@@ -30,6 +46,12 @@ create_range(From,To,Frequency, IncludeWeekends) ->
 			end,[],Dates)
     end.
 
+%%% @doc
+%%%  Creates a list of dates from the from date to the to date at the given frequency.
+%%% @end
+-spec create_range(From :: calendar:t_datetime1970(), To :: calendar:t_datetime1970(),
+		   Frequency :: atom() | false) -> 
+			  [calendar:t_datetime1970()].
 create_range(From,To,Frequency) ->
     {{Fy,Fm,Fd},{Fhour,Fmin,Fsec}} = From,
     {{Ty,Tm,Td},{Thour,Tmin,Tsec}} = To,
