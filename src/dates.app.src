@@ -1,6 +1,6 @@
 {application, dates,
  [
-  {description, ""},
+  {description, "date functions"},
   {vsn, "0.1"},
   {registered, []},
   {applications, [
